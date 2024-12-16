@@ -8,3 +8,7 @@ Il met en lumière des concepts clés tels que :
 ⚖️ **Stratégies de cohérence** pour le maintien de l'intégrité des données.  
 
 L'environnement est déployé à l'aide de **Docker** pour simplifier le processus de mise en place et permettre des tests en local.
+
+Voici l'architecture utilisée dans cette configuration :
+
+![Architecture Cassandra Cluster](./architecture.jpg)

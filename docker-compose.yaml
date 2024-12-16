@@ -1,0 +1,74 @@
+version: '3'
+
+services:
+  cassandra1:
+    image: cassandra:latest
+    container_name: cassandra1
+    networks:
+      cassandra-net:
+        ipv4_address: 192.168.56.101
+    environment:
+      - CASSANDRA_CLUSTER_NAME=Cluster
+      - CASSANDRA_LISTENER_INTERFACE=eth0
+      - CASSANDRA_RPC_ADDRESS=0.0.0.0
+      - CASSANDRA_LISTEN_ADDRESS=192.168.56.101
+      - CASSANDRA_SEEDS=192.168.56.101,192.168.56.102,192.168.56.103
+      - CASSANDRA_DC=DC1
+      - CASSANDRA_RACK=Rack1
+    ports:
+      - "9042:9042"
+    volumes:
+      - cassandra-data1:/var/lib/cassandra
+    restart: always
+
+  cassandra2:
+    image: cassandra:latest
+    container_name: cassandra2
+    networks:
+      cassandra-net:
+        ipv4_address: 192.168.56.102
+    environment:
+      - CASSANDRA_CLUSTER_NAME=Cluster
+      - CASSANDRA_LISTENER_INTERFACE=eth0
+      - CASSANDRA_RPC_ADDRESS=0.0.0.0
+      - CASSANDRA_LISTEN_ADDRESS=192.168.56.102
+      - CASSANDRA_SEEDS=192.168.56.101,192.168.56.102,192.168.56.103
+      - CASSANDRA_DC=DC1
+      - CASSANDRA_RACK=Rack1
+    ports:
+      - "9043:9042"
+    volumes:
+      - cassandra-data2:/var/lib/cassandra
+    restart: always
+
+  cassandra3:
+    image: cassandra:latest
+    container_name: cassandra3
+    networks:
+      cassandra-net:
+        ipv4_address: 192.168.56.103
+    environment:
+      - CASSANDRA_CLUSTER_NAME=Cluster
+      - CASSANDRA_LISTENER_INTERFACE=eth0
+      - CASSANDRA_RPC_ADDRESS=0.0.0.0
+      - CASSANDRA_LISTEN_ADDRESS=192.168.56.103
+      - CASSANDRA_SEEDS=192.168.56.101,192.168.56.102,192.168.56.103
+      - CASSANDRA_DC=DC1
+      - CASSANDRA_RACK=Rack1
+    ports:
+      - "9044:9042"
+    volumes:
+      - cassandra-data3:/var/lib/cassandra
+    restart: always
+
+networks:
+  cassandra-net:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 192.168.56.0/24
+
+volumes:
+  cassandra-data1:
+  cassandra-data2:
+  cassandra-data3:

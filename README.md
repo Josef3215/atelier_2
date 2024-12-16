@@ -18,7 +18,6 @@ Voici l'architecture utilisée dans cette configuration :
 Avant de commencer, assurez-vous que les outils suivants sont installés et configurés sur votre machine :
 
 - **Docker** : Assurez-vous que Docker est installé et en cours d'exécution sur votre machine. [Télécharger Docker](https://www.docker.com/get-started)
-- **PowerShell** : Utilisez PowerShell en tant qu'administrateur pour exécuter les scripts nécessaires.
 
 ## Installation
 
@@ -31,6 +30,10 @@ Avant de commencer, assurez-vous que les outils suivants sont installés et conf
    ```bash
    git clone https://github.com/Josef3215/atelier_2.git
    cd votre-repository
-2. **Téléchargez les données** :
+ 2. **Démarrez l'environnement Docker :**
+   Lancez les services définis dans le fichier `docker-compose.yml` :
+
+   ```bash
+   docker-compose up -d
 
 

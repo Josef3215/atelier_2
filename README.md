@@ -11,4 +11,4 @@ L'environnement est déployé à l'aide de **Docker** pour simplifier le process
 
 Voici l'architecture utilisée dans cette configuration :
 
-![Architecture Cassandra Cluster](./architecture.jpg)
+![Architecture Cassandra Cluster](./configuration.png)
